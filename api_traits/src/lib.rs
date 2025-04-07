@@ -3,7 +3,7 @@
 use core::alloc::Layout;
 use core::ptr::NonNull;
 
-pub mod hidden {
+mod hidden {
     // Just the names from the proposed RFC 3446 for the storage api traits.
     pub unsafe trait StoreDangling {}
     pub unsafe trait Store: StoreDangling {}
