@@ -5,7 +5,7 @@ My idea is simple: define the Allocator trait as is but with those additional tr
 
 At the very least if the names of the Store traits are decided upon it would be possible to make those traits a super trait of the Allocator trait. Even if they are initially just stubs. Then the next issue is hiding those Store traits in a way that is forward compatible. We can't have users implementing store traits directly since any code they write could get broken.
 
-Well rust already has a way to do that with derive macros. The macro can be a stub for now but if/when the store traits are stabilized then the macro can be updated to emit the desired code for the store traits. So then we just need a way to make the traits sealed but still useable by the derive macros. So users don't go trying to directly implement until it's stabilized.
+Well rust already has a way to do that with derive macros. The macro can be a stub for now but if/when the store traits are stabilized then the macro can be updated to emit the desired code for the store traits. So then we just need a way to make the traits sealed but still useable by the derive macros. So users don't go trying to directly implement them until it's stabilized.
 
 Well luckily declarative macros 2.0 has a way for us to do that. Just make the traits public, but put them in a non-public module. When using declarative macros 2.0 we can still access the traits. So this makes the trait sealed except through the macro. Then we can use derive macros as a more convenient way to use these macros.
 
