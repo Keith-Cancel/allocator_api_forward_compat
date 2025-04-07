@@ -56,8 +56,10 @@ pub mod macros {
     }
 }
 
+// Just a stub of the allocator trait for illustrative purposes.
 pub struct AllocError;
 
+// Maybe add hidden::StoreNoOpResolve + hidden::StorePinning?
 pub unsafe trait Allocator: hidden::Store {
     fn allocate(&self, layout: Layout) -> Result<NonNull<[u8]>, AllocError>;
     unsafe fn deallocate(&self, ptr: NonNull<u8>, layout: Layout);
