@@ -1,5 +1,5 @@
 # Allocator API - Forward Compat
-So one the concerns I saw with stabilizing even part of the Allocator trait was the desire for to work with the Store API ([RFC 3446](https://github.com/rust-lang/rfcs/pull/3446)). Some of that discussion revolved around wanting to make the Store Traits a super trait of the Allocator trait. This little demo repository shows how that can be done and allow forward compatibility with that desire.
+So one the concerns I saw with stabilizing even part of the Allocator trait was the desire for it to work with the Store API ([RFC 3446](https://github.com/rust-lang/rfcs/pull/3446)). Some of that discussion revolved around wanting to make the Store Traits a super trait of the Allocator trait. This little demo repository shows how that can be done and allow forward compatibility with that desire.
 
 My idea is simple: define the Allocator trait as is but with those additional traits. However, that adds some wrinkles then. The store traits are not stable nor at this time of writing this in nightly.
 
